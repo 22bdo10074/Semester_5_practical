@@ -16,3 +16,5 @@
 
 ## [Experiment-3.1](https://github.com/22bdo10074/Semester_5_practical/tree/main/worksheet-3.1)
 
+## [Experiment-3.2](https://github.com/22bdo10074/Semester_5_practical/tree/main/worksheet-3.2)
+
