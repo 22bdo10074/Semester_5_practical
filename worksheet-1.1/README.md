@@ -1,30 +1,25 @@
 # Experiment-1.1
 ## 1. Aim/Overview of the practical: 
-Write JavaScript to validate the following fields of the Registration page.
-1. First Name (Name should contains alphabets and the length should not be less than 6 characters).
-2. Password (Password should not be less than 6 characters length).
-3. E-mail id (should not contain any invalid and must follow the standard pattern name@domain.com)
-4. Mobile Number (Phone number should contain 10 digits only).
-5. Last Name and Address (should not be Empty).
-2. Task to be done: 
+### Write JavaScript to validate the following fields of the Registration page.
+    1. First Name (Name should contains alphabets and the length should not be less than 6 characters).
+    2. Password (Password should not be less than 6 characters length).
+    3. E-mail id (should not contain any invalid and must follow the standard pattern name@domain.com)
+    4. Mobile Number (Phone number should contain 10 digits only).
+    5. Last Name and Address (should not be Empty).
+### 2. Task to be done: 
  Design a static web page using HTML tags and use the CSS features with different layouts as per need of applications also Use JavaScript for designing dynamic web pages and client- side validation.
-3. Apparatus: HTML, CSS and JAVASCRIPT
+### 3. Apparatus: HTML, CSS and JAVASCRIPT
 
-4. Steps for experiment/practical:
+### 4. Steps for experiment/practical:
 
 To validate the specified fields of a registration page using HTML, CSS, and JavaScript, follow these steps:
 I.	Create the form structure with the required fields.
-
 II.	Style the form using CSS.
 III.	Add JavaScript for form validation.
-
 IV.	HTML: Defines the form fields and includes the necessary id attributes for targeting elements in JavaScript.
-
 V.	CSS: Styles the form to make it visually appealing.
-
 VI.	JavaScript: Adds an event listener to the form to handle form submission, validate the fields, and display error messages or a success message.
-
-VII.	The validation checks include:
+### 	The validation checks include:
 •	First Name: Must contain only alphabets and be at least 6 characters long.
 •	Last Name: Must not be empty.
 •	Password: Must be at least 6 characters long.
@@ -32,94 +27,95 @@ VII.	The validation checks include:
 •	Mobile Number: Must contain exactly 10 digits.
 •	Address: Must not be empty.
 If any validation fails, an error message is displayed. If all validations pass, a success message is shown.
-5: Program code:
+### 5: Program code:
+### HTML code:
 
-HTML code:
-1.	<!DOCTYPE html>
-2.	<html lang="en">
-3.	<head>
-4.	    <meta charset="UTF-8">
-5.	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-6.	    <title>Registration Form</title>
-7.	    <link rel="stylesheet" type="text/css" href="beauty.css">
-8.	    <style>
-9.	        .password-container {
-10.	            position: relative;
-11.	            display: flex;
-12.	            align-items: center;
-13.	        }
-14.	        .toggle-password {
-15.	            position: absolute;
-16.	            right: 10px;
-17.	            cursor: pointer;
-18.	        }
-19.	        .error {
-20.	            color: red;
-21.	            font-size: 0.9em;
-22.	        }
-23.	    </style>
-24.	</head>
-25.	<body>
-26.	    <div class="container">
-27.	        <h2>Registration Form</h2>
-28.	        <form id="registrationForm" method="POST" action="register.php" onsubmit="return validateForm()">
-29.	            <!-- Form fields -->
-30.	            <div>
-31.	                <label for="firstName">First Name:</label>
-32.	                <input type="text" id="firstName" name="firstName" oninput="capitalizeFirstLetter(this)" pattern="[A-Za-z]+" title="Only alphabetic characters allowed" required>
-33.	                <span class="error" id="firstNameError"></span>
-34.	            </div>
-35.	
-36.	            <div>
-37.	                <label for="lastName">Last Name:</label>
-38.	                <input type="text" id="lastName" name="lastName" oninput="capitalizeFirstLetter(this)" pattern="[A-Za-z]+" title="Only alphabetic characters allowed" required>
-39.	                <span class="error" id="lastNameError"></span>
-40.	            </div>
-41.	
-42.	            <div>
-43.	                <label for="email">Email:</label>
-44.	                <input type="email" id="email" name="email" required>
-45.	                <span class="error" id="emailError"></span>
-46.	            </div>
-47.	
-48.	            <div class="password-container">
-49.	                <label for="password">Password:</label>
-50.	                <input type="password" id="password" name="password" required>
-51.	                <span class="toggle-password" onclick="togglePasswordVisibility()">👁️</span>
-52.	                <span class="error" id="passwordError"></span>
-53.	            </div>
-54.	            <br>
-55.	            <div> 
-56.	                Gender: 
-57.	                Male <input type="radio" name="mygender" value="male" required> 
-58.	                Female <input type="radio" name="mygender" value="female"> 
-59.	                Other <input type="radio" name="mygender" value="other">
-60.	            </div>
-61.	            <br>
-62.	
-63.	            <div>
-64.	                <label for="phone">Phone Number:</label><br>
-65.	                <input type="tel" id="phone" name="phone" placeholder="1234567890" required oninput="validatePhoneNumber(this)"><br><br>
-66.	                <span class="error" id="phoneError"></span>
-67.	            </div>
-68.	
-69.	            <div>
-70.	                <label for="address">Address:</label>
-71.	                <textarea id="address" name="address" placeholder=" " oninput="validateAddress(this)" required></textarea>
-72.	                <span class="error" id="addressError"></span>
-73.	            </div>
-74.	
-75.	            <div>
-76.	                <button type="submit">Register</button>
-77.	                <button type="reset">Reset</button>
-78.	            </div>
-79.	        </form>
-80.	    </div>
-81.	    <script src="logic.js"></script>
-82.	</body>
-83.	</html>
+ <!DOCTYPE html>
+  <html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> Registration Form
+   </title>
+   <link rel="stylesheet" type="text/css" href="beauty.css">
+   <style>
+     .password-container {
+	            position: relative;
+	            display: flex;
+	            align-items: center;
+	        }
+	        .toggle-password {
+          position: absolute;
+	            right: 10px;
+	            cursor: pointer;
+	        }
+	        .error {
+	            color: red;
+	            font-size: 0.9em;
+	        }
+	    </style>
+	</head>
+	<body>
+	    <div class="container">
+	        <h2>Registration Form</h2>
+	        <form id="registrationForm" method="POST" action="register.php" onsubmit="return validateForm()">
+	            <!-- Form fields -->
+	            <div>
+	                <label for="firstName">First Name:</label>
+	                <input type="text" id="firstName" name="firstName" oninput="capitalizeFirstLetter(this)" pattern="[A-Za-z]+" title="Only alphabetic characters allowed" required>
+	                <span class="error" id="firstNameError"></span>
+	            </div>
+	
+	            <div>
+	                <label for="lastName">Last Name:</label>
+	                <input type="text" id="lastName" name="lastName" oninput="capitalizeFirstLetter(this)" pattern="[A-Za-z]+" title="Only alphabetic characters allowed" required>
+	                <span class="error" id="lastNameError"></span>
+	            </div>
+	
+	            <div>
+	                <label for="email">Email:</label>
+	                <input type="email" id="email" name="email" required>
+	                <span class="error" id="emailError"></span>
+	            </div>
+	
+	            <div class="password-container">
+	                <label for="password">Password:</label>
+	                <input type="password" id="password" name="password" required>
+	                <span class="toggle-password" onclick="togglePasswordVisibility()">👁️</span>
+	                <span class="error" id="passwordError"></span>
+	            </div>
+	            <br>
+	            <div> 
+	                Gender: 
+	                Male <input type="radio" name="mygender" value="male" required> 
+	                Female <input type="radio" name="mygender" value="female"> 
+	                Other <input type="radio" name="mygender" value="other">
+	            </div>
+	            <br>
+	
+	            <div>
+	                <label for="phone">Phone Number:</label><br>
+	                <input type="tel" id="phone" name="phone" placeholder="1234567890" required oninput="validatePhoneNumber(this)"><br><br>
+	                <span class="error" id="phoneError"></span>
+	            </div>
+	
+	            <div>
+	                <label for="address">Address:</label>
+	                <textarea id="address" name="address" placeholder=" " oninput="validateAddress(this)" required></textarea>
+	                <span class="error" id="addressError"></span>
+	            </div>
+	
+	            <div>
+	                <button type="submit">Register</button>
+	                <button type="reset">Reset</button>
+	            </div>
+        </form>
+	    </div>
+	    <script src="logic.js"></script>
+	</body>
+	</html>
 
-CSS code:
+### CSS code:
 
 1.	body {
 2.	font-family: sans-serif;
@@ -170,7 +166,7 @@ CSS code:
 42.	margin-bottom: 10px;
 43.	}
 
-JAVASCRIPT code:
+### JAVASCRIPT code:
 
 1.	function capitalizeFirstLetter(inputField) {
 2.	const value = inputField.value;
@@ -352,13 +348,12 @@ a.	document.getElementById('addressError').textContent = '';
 10. Result/Output/Writing Summary:
 Here, successfully created registration form created using HTML, CSS, and JavaScript. This example includes a form with basic fields like first name, last name, email, phone number, gender and password, along with a submission handler that validates the input.
 
-11. Implementation/Output:
+### 11. Implementation/Output:
 •	Validation of Registration form:
-
- 
-
-
+![image](https://github.com/user-attachments/assets/3be90963-d1b6-4459-99d1-3fefb5241446)
 
 •	After registering the form, it will take you to the another browser for printing the thankyou message:
+![image](https://github.com/user-attachments/assets/a2802610-d2d8-4dde-9bef-b88ec3720199)
+
 
  
