@@ -9,3 +9,5 @@
 
 ## [Experiment-2.1](https://github.com/22bdo10074/Semester_5_practical/tree/main/worksheet-2.1)
 
+## [Experiment-2.2](https://github.com/22bdo10074/Semester_5_practical/tree/main/worksheet-2.2)
+
